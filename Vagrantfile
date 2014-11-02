@@ -96,6 +96,7 @@ Vagrant.configure("2") do |config|
         config.vm.provision :shell, :inline => "mv /tmp/vagrantfile-user-data /var/lib/coreos-vagrant/", :privileged => true
       end
 
+      config.vm.network :forwarded_port, guest: 5000, host: (5000 + i - 1)
     end
   end
 end
